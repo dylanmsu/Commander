@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Commander</string>
+    <string name="title_connect">Connect</string>
+    <string name="title_control">Control</string>
+    <string name="ip_address_hint">Ip adress</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="connect_button">Connect</string>
+    <string name="connected_message">Connected!</string>
+    <string name="disconnect_button_name"><u>Disconnect</u></string>
+</resources>

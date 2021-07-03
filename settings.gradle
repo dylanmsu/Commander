@@ -1,0 +1,2 @@
+rootProject.name = "Commander"
+include ':app'

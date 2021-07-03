@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.control.ControlFragment"
+    android:id="@+id/control_view">
+
+    <LinearLayout
+        android:id="@+id/sliders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        tools:layout_editor_absoluteX="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/pan_text"
+            android:text="Pan speed" />
+
+        <SeekBar
+            android:id="@+id/pan_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="24"
+            android:min="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Tilt speed" />
+
+        <SeekBar
+            android:id="@+id/tilt_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="20"
+            android:min="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Zoom speed" />
+
+        <SeekBar
+            android:id="@+id/zoom_speed"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="7"
+            android:min="1" />
+    </LinearLayout>
+
+    <GridLayout
+
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:columnCount="3"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_off"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:padding="30dp"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:src="@drawable/power_off_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_up"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/teal_700"
+            android:src="@drawable/arrow_up_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_mute"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:padding="30dp"
+            android:backgroundTint="@android:color/holo_orange_light"
+            android:src="@drawable/video_slash_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/teal_700"
+            android:src="@drawable/arrow_left_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/teal_200"
+            android:src="@drawable/home_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/teal_700"
+            android:src="@drawable/arrow_right_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_zoom_in"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:padding="30dp"
+            android:backgroundTint="@color/light_blue_400"
+            android:src="@drawable/search_plus_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_down"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:backgroundTint="@color/teal_700"
+            android:src="@drawable/arrow_down_solid" />
+
+        <com.dylanmissuwe.commander.ControlButton
+            android:id="@+id/button_zoom_out"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="2"
+            android:layout_rowWeight="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:scaleType="fitCenter"
+            android:padding="30dp"
+            android:backgroundTint="@color/light_blue_400"
+            android:src="@drawable/search_minus_solid" />
+
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

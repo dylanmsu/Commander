@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_connect">
+
+    <fragment
+        android:id="@+id/navigation_connect"
+        android:name="com.dylanmissuwe.commander.ui.connect.ConnectFragment"
+        android:label="@string/title_connect"
+        tools:layout="@layout/fragment_connect" />
+
+    <fragment
+        android:id="@+id/navigation_control"
+        android:name="com.dylanmissuwe.commander.ui.control.ControlFragment"
+        android:label="@string/title_control"
+        tools:layout="@layout/fragment_control" />
+</navigation>
