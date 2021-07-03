@@ -3,4 +3,9 @@
     <style name="Widget.Theme.Commander.MyView" parent="">
         <item name="android:background">@color/gray_600</item>
     </style>
+
+    <style name="successConnect">
+        <item name="android:background">@android:color/holo_green_dark</item>
+    </style>
+
 </resources>

@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until it.childCount){
                     val view: View = it.getChildAt(i)
                     view.isEnabled = false
-                    view.alpha = 0.5f
+                    //view.alpha = 0.5f
                 }
             }
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until it.childCount){
                     val view: View = it.getChildAt(i)
                     view.isEnabled = false
-                    view.alpha = 0.5f
+                    //view.alpha = 0.5f
                 }
             }
 
