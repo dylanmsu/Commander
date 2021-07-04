@@ -53,10 +53,10 @@
         android:pathData="M16.191,111.054l97.652,-92.725l174.572,183.849l-97.652,92.725z"
         android:strokeAlpha="0"
         android:strokeLineJoin="round"
-        android:strokeWidth="2.89999"
+        android:strokeWidth="2.9"
         android:fillColor="#000000"
         android:strokeColor="#000000"
-        android:fillAlpha="0.09830508"
+        android:fillAlpha="0.1"
         android:strokeLineCap="round"/>
     <path
         android:pathData="M67.312,67.312m65.862,0a65.862,65.862 0,1 0,-131.725 0a65.862,65.862 0,1 0,131.725 0"

@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_connect"
-        android:icon="@drawable/link_solid"
+        android:icon="@drawable/ic_link_solid"
         android:title="@string/title_connect" />
 
     <item
         android:id="@+id/navigation_control"
-        android:icon="@drawable/gamepad_solid"
+        android:icon="@drawable/ic_gamepad_solid"
         android:title="@string/title_control" />
 
 </menu>
