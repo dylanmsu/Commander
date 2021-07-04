@@ -11,25 +11,27 @@
         android:id="@+id/sliders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp">
 
         <TextView
+            android:id="@+id/pan_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:id="@+id/pan_text"
             android:text="Pan speed" />
 
         <SeekBar
             android:id="@+id/pan_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="12"
             android:max="24"
-            android:min="1"/>
+            android:min="1"
+            android:progress="12" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,9 +43,9 @@
             android:id="@+id/tilt_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="10"
             android:max="20"
-            android:min="1" />
+            android:min="1"
+            android:progress="10" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,18 +55,18 @@
 
         <SeekBar
             android:id="@+id/zoom_speed"
-            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="4"
+            android:layout_marginBottom="20dp"
             android:max="7"
-            android:min="1" />
+            android:min="1"
+            android:progress="4" />
     </LinearLayout>
 
     <GridLayout
 
         android:id="@+id/gridLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:columnCount="3"
         android:padding="10dp"
