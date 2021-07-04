@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.widget.SwitchCompat
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
@@ -47,20 +48,35 @@ class ConnectFragment : Fragment() {
         val ipAddress = view.findViewById<EditText>(R.id.ip_address)
         val login = view.findViewById<EditText>(R.id.login)
         val password = view.findViewById<EditText>(R.id.password)
+        val remember = view.findViewById<SwitchCompat>(R.id.switch1)
 
         val prefs = requireActivity().getSharedPreferences("user_login", Context.MODE_PRIVATE)
-        ipAddress.setText(prefs.getString("ip_address",""))
-        login.setText(prefs.getString("login", ""))
-        password.setText(prefs.getString("password", ""))
+        val rememberCredentials = prefs.getBoolean("remember_credentials", false)
+
+        remember.setOnClickListener {
+            val prefsEdit = prefs.edit()
+            prefsEdit.putBoolean("remember_credentials", remember.isChecked)
+            prefsEdit.apply()
+            prefsEdit.commit()
+
+        }
+
+        remember.setChecked(rememberCredentials)
+
+        if (remember.isChecked) {
+            ipAddress.setText(prefs.getString("ip_address",""))
+            login.setText(prefs.getString("login", ""))
+            password.setText(prefs.getString("password", ""))
+        }
 
         val button: Button = view.findViewById(R.id.connect_button)
         button.isEnabled = !MyApplication.client.isLoggedIn()
         button.setOnClickListener {
-            Connect(view, ipAddress.text.toString(), login.text.toString(), password.text.toString())
+            Connect(view, ipAddress.text.toString(), login.text.toString(), password.text.toString(), remember.isChecked)
         }
     }
 
-    private fun Connect(view: View, ip_address: String, login: String, password: String) {
+    private fun Connect(view: View, ip_address: String, login: String, password: String, remember: Boolean) {
 
         val loading = view.findViewById<ProgressBar>(R.id.progressBar)
         loading.visibility = View.VISIBLE
@@ -84,9 +100,14 @@ class ConnectFragment : Fragment() {
                 if (isreachable) {
                     if (isLoggedIn) {
                         val prefs = requireActivity().getSharedPreferences("user_login", Context.MODE_PRIVATE).edit()
-                        prefs.putString("ip_address", ip_address)
-                        prefs.putString("login", login)
-                        prefs.putString("password", password)
+                        prefs.putBoolean("remember_credentials", remember)
+
+                        if (remember) {
+                            prefs.putString("ip_address", ip_address)
+                            prefs.putString("login", login)
+                            prefs.putString("password", password)
+                        }
+
                         prefs.apply()
                         prefs.commit()
 
