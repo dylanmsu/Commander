@@ -50,7 +50,10 @@ class MainActivity : AppCompatActivity() {
 
         val disconnect = findViewById<View>(R.id.disconnect) as TextView
         disconnect.setOnClickListener {
-            MyApplication.client.Disconnect()
+            Thread {
+                MyApplication.client.Disconnect()
+            }.start()
+
             toolbar.visibility = View.GONE;
 
             val grid = findViewById<View>(R.id.gridLayout) as GridLayout?
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until it.childCount){
                     val view: View = it.getChildAt(i)
                     view.isEnabled = false
-                    //view.alpha = 0.5f
+                    view.alpha = 0.5f
                 }
             }
 

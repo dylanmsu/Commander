@@ -5,6 +5,7 @@ import kotlin.math.min
 
 class PtzCamera {
     private var client: TelnetClient = TelnetClient()
+    private var success = false
 
     constructor(client: TelnetClient){
         this.client = client
@@ -26,7 +27,7 @@ class PtzCamera {
         client.sendAndWaitForOk("camera pan right " + clamp(speed,24,1))
     }
     public fun PanRight(){
-        client.sendAndWaitForOk("camera pan right")
+       client.sendAndWaitForOk("camera pan right")
     }
 
     public fun PanStop(){

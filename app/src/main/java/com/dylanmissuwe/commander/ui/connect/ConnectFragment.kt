@@ -1,7 +1,8 @@
 package com.dylanmissuwe.commander.ui.connect
 
 import android.content.Context
-import android.content.SharedPreferences
+import android.content.Context.CONNECTIVITY_SERVICE
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dylanmissuwe.commander.MyApplication
@@ -18,7 +20,6 @@ import com.dylanmissuwe.commander.NetworkInfo
 import com.dylanmissuwe.commander.R
 import com.dylanmissuwe.commander.TelnetClient
 import com.dylanmissuwe.commander.databinding.FragmentConnectBinding
-import java.util.prefs.Preferences
 
 
 class ConnectFragment : Fragment() {
@@ -79,6 +80,7 @@ class ConnectFragment : Fragment() {
 
             activity?.runOnUiThread {
                 val toolbar = requireActivity().findViewById<View>(R.id.toolbar3) as Toolbar
+                loading?.visibility = View.GONE
                 if (isreachable) {
                     if (isLoggedIn) {
                         val prefs = requireActivity().getSharedPreferences("user_login", Context.MODE_PRIVATE).edit()
@@ -99,7 +101,6 @@ class ConnectFragment : Fragment() {
                 } else {
                     Toast.makeText(context, "$ip_address on port $port is not reachable", Toast.LENGTH_LONG).show()
                 }
-                loading?.visibility = View.GONE
             }
         }.start()
     }

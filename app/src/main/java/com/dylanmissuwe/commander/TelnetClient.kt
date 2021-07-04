@@ -1,5 +1,7 @@
 package com.dylanmissuwe.commander
 
+import android.view.View
+import android.widget.Toast
 import java.net.Socket
 import java.util.*
 
@@ -25,7 +27,7 @@ class TelnetClient {
     }
 
     public fun isLoggedIn(): Boolean {
-        return login_correct
+        return login_correct && (!client.isClosed && client.isConnected)
     }
 
     public fun Connect() {
@@ -39,11 +41,13 @@ class TelnetClient {
     }
 
     public fun Disconnect(){
+        val output = client.getOutputStream()
+        output.write(("exit\r\n").toByteArray())
         login_correct = false
         client.close();
     }
 
-    public fun sendAndWaitForOk(command: String) {
+    public fun sendAndWaitForOk(command: String): Boolean {
         val output = client.getOutputStream()
         val input = client.getInputStream()
 
@@ -58,6 +62,7 @@ class TelnetClient {
             }
         }
         println(response)
+        return true
     }
 
     public fun Login(login: String, password: String) {
