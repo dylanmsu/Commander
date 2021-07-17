@@ -10,5 +10,4 @@
         android:id="@+id/navigation_control"
         android:icon="@drawable/ic_gamepad_solid"
         android:title="@string/title_control" />
-
 </menu>

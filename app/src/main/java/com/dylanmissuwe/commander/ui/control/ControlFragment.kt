@@ -1,5 +1,6 @@
 package com.dylanmissuwe.commander.ui.control
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dylanmissuwe.commander.*
 import com.dylanmissuwe.commander.databinding.FragmentControlBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class ControlFragment : Fragment() {
@@ -30,9 +32,11 @@ class ControlFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        controlViewModel =
-            ViewModelProvider(this).get(ControlViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        controlViewModel = ViewModelProvider(this).get(ControlViewModel::class.java)
+
+        getActivity()?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         _binding = FragmentControlBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -43,9 +47,7 @@ class ControlFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val controlView = view.findViewById<ConstraintLayout>(R.id.control_view)
-
-        val camera: PtzCamera = PtzCamera(MyApplication.client)
+        val camera = PtzCamera(MyApplication.client)
 
         val panSpeedView = view.findViewById<SeekBar>(R.id.pan_speed)
         panSpeedView.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dylanmissuwe.commander">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Commander">
         <activity
+            android:name=".ui.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/Theme.Commander.Fullscreen"></activity>
+        <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="sensorPortrait"
-            tools:ignore="LockedOrientationActivity">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

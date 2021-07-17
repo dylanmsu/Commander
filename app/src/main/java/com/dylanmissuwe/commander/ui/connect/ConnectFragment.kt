@@ -2,6 +2,8 @@ package com.dylanmissuwe.commander.ui.connect
 
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
+import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,6 +23,7 @@ import com.dylanmissuwe.commander.NetworkInfo
 import com.dylanmissuwe.commander.R
 import com.dylanmissuwe.commander.TelnetClient
 import com.dylanmissuwe.commander.databinding.FragmentConnectBinding
+import com.dylanmissuwe.commander.ui.FullscreenActivity
 
 
 class ConnectFragment : Fragment() {
@@ -35,6 +38,8 @@ class ConnectFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         controlViewModel =
             ViewModelProvider(this).get(ConnectViewModel::class.java)
+
+        activity?.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         _binding = FragmentConnectBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -99,6 +104,7 @@ class ConnectFragment : Fragment() {
                 loading?.visibility = View.GONE
                 if (isreachable) {
                     if (isLoggedIn) {
+                        startActivity(Intent(activity, FullscreenActivity::class.java))
                         val prefs = requireActivity().getSharedPreferences("user_login", Context.MODE_PRIVATE).edit()
                         prefs.putBoolean("remember_credentials", remember)
 

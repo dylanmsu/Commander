@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Pan speed" />
+            android:text="@string/pan_speed_hint" />
 
         <SeekBar
             android:id="@+id/pan_speed"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Tilt speed" />
+            android:text="@string/tilt_speed_hint" />
 
         <SeekBar
             android:id="@+id/tilt_speed"
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Zoom speed" />
+            android:text="@string/zoom_speed_hint" />
 
         <SeekBar
             android:id="@+id/zoom_speed"
@@ -186,6 +186,5 @@
             android:src="@drawable/ic_search_minus_solid" />
 
     </GridLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
